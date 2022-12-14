@@ -102,7 +102,7 @@
 
     <!-- add sale date -->
     <xpath expr="//div[@name='due_date']" position="before">
-      <div class="col-auto mw-100 mb-2" t-if="o.x_invoice_sale_date" name="x_invoice_sale_date">
+      <!-- [UPGRADE] --><div class="col-auto col-3 mw-100 mb-2" t-if="o.x_invoice_sale_date" name="x_invoice_sale_date">
         <strong>Sale Date:</strong>
         <p class="m-0" t-field="o.x_invoice_sale_date"/>
       </div>
@@ -141,21 +141,32 @@
     </h2>
 
     <div name="reference" position="attributes">
-      <attribute name="t-if">not o.move_type.endswith('_refund') and o.ref</attribute>"
+      <attribute name="t-if">not o.move_type.endswith('_refund') and o.ref</attribute> <!-- " -->
     </div>
 
+    <!-- [UPGRADE] 
+    <div name="invoice_date" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
+    <div name="due_date" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
+    <div name="origin" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
+    <div name="customer_code" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
+    <div name="reference" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
+    -->
     <div name="reference" position="after">
-      <div class="col-auto mw-100 mb-2" t-if="o.move_type.endswith('_refund') and o.ref" name="x_correction_reason">
+      <!-- [UPGRADE] --><div class="col-auto col-3 mw-100 mb-2" t-if="o.move_type.endswith('_refund') and o.ref" name="x_correction_reason">
+      <!-- <div class="col-auto mw-100 mb-2" -->
         <strong>Correction reason:</strong>
         <p class="m-0" t-field="o.ref"/>
       </div>
-      <div class="col-auto mw-100 mb-2" t-if="o.move_type.endswith('_refund') and o.refund_invoice_id" name="x_corrected_invoice">
+      <!-- [UPGRADE] --><div class="col-auto col-3 mw-100 mb-2" t-if="o.move_type.endswith('_refund') and o.refund_invoice_id" name="x_corrected_invoice">
         <strong>Corrected invoice:</strong>
         <p class="m-0" t-out="o.refund_invoice_id.name"/>
       </div>
-      <div class="col-auto mw-100 mb-2" t-if="o.move_type.endswith('_refund') and o.invoice_date" name="x_original_invoice_date">
+      <!-- [UPGRADE] --><div class="col-auto col-3 mw-100 mb-2" t-if="o.move_type.endswith('_refund') and o.invoice_date" name="x_original_invoice_date">
         <strong>Original invoice date:</strong>
-        <p class="m-0" t-out="o.refund_invoice_id.invoice_date"/>
+        <!-- [UPGRADE] -->
+        <p class="m-0" t-if="o.x_is_poland" t-out="o.refund_invoice_id.invoice_date" t-options='{"widget": "date","format": "dd.MM.yyyy"}'/>
+        <p class="m-0" t-if="not o.x_is_poland" t-out="o.refund_invoice_id.invoice_date"/>
+        <!-- <p class="m-0" t-out="o.refund_invoice_id.invoice_date"/> -->
       </div>
     </div>
 

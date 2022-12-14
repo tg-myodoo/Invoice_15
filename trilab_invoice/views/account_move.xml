@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <template id="report_invoice_document" inherit_id="account.report_invoice_document"
-            name="trilab_report_invoice_document" primary="True">
+  <template id="report_invoice_document_OLD" inherit_id="account.report_invoice_document"
+            name="trilab_report_invoice_document_OLD" primary="True">
 
     <!-- add word buyer above customer block -->
     <xpath expr="//address/../*[1]" position="before">
