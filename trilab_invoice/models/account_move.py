@@ -289,21 +289,21 @@ class AccountMove(models.Model):
             # noinspection PyTypeChecker
             groups_vals = [
                 {
-                    'tax_group_name': group.name,
+                    'tax_group_name': group.name, # on tax sumary on pdf
                     'tax_group_amount': amounts['tax_amount'],
                     'tax_group_base_amount': amounts['base_amount'],
                     'x_tax_group_total_amount': amounts['tax_amount'] + amounts['base_amount'],
                     'x_tax_group_amount_in_pln': amounts['x_balance_amount'],
-                    'formatted_tax_group_amount': formatLang(lang_env, amounts['tax_amount'], currency_obj=currency),
+                    'formatted_tax_group_amount': formatLang(lang_env, amounts['tax_amount'], currency_obj=currency), # on tax sumary on pdf
                     'formatted_tax_group_base_amount': formatLang(
                         lang_env, amounts['base_amount'], currency_obj=currency
-                    ),
+                    ), # on tax sumary on pdf
                     'x_formatted_tax_group_amount_in_pln': formatLang(
                         lang_env, amounts['x_balance_amount'], currency_obj=pln
                     ),
                     'x_formatted_tax_group_total_amount': formatLang(
                         lang_env, amounts['tax_amount'] + amounts['base_amount'], currency_obj=currency
-                    ),
+                    ), # on tax sumary on pdf
                     'tax_group_id': group.id,
                     'group_key': '%s-%s' % (subtotal_title, group.id),
                 }
@@ -319,9 +319,9 @@ class AccountMove(models.Model):
             subtotal_value = amount_untaxed + previous_subtotals_tax_amount
             subtotals_list.append(
                 {
-                    'name': subtotal_title,
+                    'name': subtotal_title, # on tax sumary on view
                     'amount': subtotal_value,
-                    'formatted_amount': formatLang(lang_env, subtotal_value, currency_obj=currency),
+                    'formatted_amount': formatLang(lang_env, subtotal_value, currency_obj=currency), # on tax sumary on view
                 }
             )
 
@@ -335,14 +335,14 @@ class AccountMove(models.Model):
         # Assign json-formatted result to the field
         # noinspection PyTypeChecker
         return {
-            'amount_total': amount_total,
-            'amount_untaxed': amount_untaxed,
-            'formatted_amount_total': formatLang(lang_env, amount_total, currency_obj=currency),
+            'amount_total': amount_total, # on tax sumary on pdf
+            'amount_untaxed': amount_untaxed, # on tax sumary on pdf
+            'formatted_amount_total': formatLang(lang_env, amount_total, currency_obj=currency), # on tax sumary on view
             'formatted_amount_untaxed': formatLang(lang_env, amount_untaxed, currency_obj=currency),
             'groups_by_subtotal': groups_by_subtotal,
             'subtotals': subtotals_list,
             'allow_tax_edition': False,
-            'x_tax_amount': tax_amount,
+            'x_tax_amount': tax_amount, # on tax sumary on pdf
             'x_formatted_tax_amount': formatLang(lang_env, tax_amount, currency_obj=currency),
             'x_tax_amount_in_pln': tax_amount_in_pln,
             'x_formatted_tax_amount_in_pln': formatLang(lang_env, tax_amount_in_pln, currency_obj=pln),
@@ -1161,6 +1161,31 @@ class AccountMove(models.Model):
 
             move.x_amount_total = sign * abs(total_currency if len(currencies) == 1 else total)
             move.x_amount_residual = total_residual_currency if len(currencies) == 1 else total_residual
+
+            
+    # UPGRADE START
+    @api.depends(
+        'line_ids.matched_debit_ids.debit_move_id.move_id.payment_id.is_matched',
+        'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual',
+        'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual_currency',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.payment_id.is_matched',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.line_ids.amount_residual',
+        'line_ids.matched_credit_ids.credit_move_id.move_id.line_ids.amount_residual_currency',
+        'line_ids.debit',
+        'line_ids.credit',
+        'line_ids.currency_id',
+        'line_ids.amount_currency',
+        'line_ids.amount_residual',
+        'line_ids.amount_residual_currency',
+        'line_ids.payment_id.state',
+        'line_ids.full_reconcile_id')
+    def _compute_amount(self):   
+        super()._compute_amount()
+        for move in self:
+            # _logger.info("========================\n" + str(move.name) + "\n" + str(move.x_amount_total) + "\n" + str(move.x_amount_residual) + "\n" + str(move.amount_residual))
+            move.amount_residual = move.x_amount_residual
+    # UPGRADE END
+
 
     def _move_autocomplete_invoice_lines_write(self, vals):
         res = super()._move_autocomplete_invoice_lines_write(vals)
