@@ -1,3 +1,6 @@
+v0.1.1
+====
+* Further bugfixes in QWEB view.
 
 v0.1 - Bugfixes
 ====

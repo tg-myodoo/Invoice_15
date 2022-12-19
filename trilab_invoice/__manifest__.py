@@ -16,9 +16,10 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'views/account_move_reversal.xml',
-        'views/account_move_views.xml',
+        'views/report_templates.xml',
         'views/report_invoice.xml',
+        'views/account_move_reversal.xml',
+        'views/account_move_views.xml',    
         'views/sale_advance_payment_inv.xml',
         'views/sale_views.xml',
         'views/res_config_settings_views.xml',

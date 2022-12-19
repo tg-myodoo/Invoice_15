@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!-- [UPGRADE] -->
+  <template id="external_layout_bold" inherit_id="web.external_layout_bold"
+            name="trilab_external_layout_bold">
+    <!-- primary="True" -->
+    <xpath expr="//div[@t-attf-class='footer o_clean_footer o_company_#{company.id}_layout']/div/div[position()=1]" position="attributes">
+        <attribute name="class">col-5</attribute>
+    </xpath>
+    
+  </template>
+</odoo>

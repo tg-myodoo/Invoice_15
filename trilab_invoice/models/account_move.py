@@ -1163,7 +1163,7 @@ class AccountMove(models.Model):
             move.x_amount_residual = total_residual_currency if len(currencies) == 1 else total_residual
 
             
-    # UPGRADE START
+    # [UPGRADE] START
     @api.depends(
         'line_ids.matched_debit_ids.debit_move_id.move_id.payment_id.is_matched',
         'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual',
@@ -1184,7 +1184,7 @@ class AccountMove(models.Model):
         for move in self:
             # _logger.info("========================\n" + str(move.name) + "\n" + str(move.x_amount_total) + "\n" + str(move.x_amount_residual) + "\n" + str(move.amount_residual))
             move.amount_residual = move.x_amount_residual
-    # UPGRADE END
+    # [UPGRADE] END
 
 
     def _move_autocomplete_invoice_lines_write(self, vals):
