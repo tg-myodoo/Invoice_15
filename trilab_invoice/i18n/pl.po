@@ -4,16 +4,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0+e\n"
+"Project-Id-Version: Odoo Server 15.0+e-20221116\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 15:27+0000\n"
-"PO-Revision-Date: 2022-12-11 15:27+0000\n"
+"POT-Creation-Date: 2022-12-20 09:20+0000\n"
+"PO-Revision-Date: 2022-12-20 10:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: pl\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document
@@ -23,11 +25,11 @@ msgstr "&amp;byk;&amp;nbsp; BIC/SWIFT:"
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.res_config_settings_view_form
 msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" groups=\"base.group_multi_company\"/>"
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" groups="
+"\"base.group_multi_company\"/>"
 msgstr ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Wartości tutaj wyświetlone są"
-" typowe dla danej firmy.\" groups=\"base.group_multi_company\"/>"
+"<span class=\"fa fa-lg fa-building-o\" title=\"Wartości tutaj wyświetlone są typowe dla danej "
+"firmy.\" groups=\"base.group_multi_company\"/>"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document
@@ -148,6 +150,11 @@ msgstr "<strong>Przyczyna korekty:</strong>"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document
+msgid "<strong>Final Invoice Summary / Amount To Pay:</strong>"
+msgstr "<strong>Podsumowanie faktury finalnej/Do zapłaty</strong>"
+
+#. module: trilab_invoice
+#: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.tax_summary
 msgid "<strong>GROSS Amount</strong>"
 msgstr "<strong>Wartość brutto</strong>"
@@ -170,11 +177,8 @@ msgstr "<strong>Data sprzedaży:</strong>"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document
-msgid ""
-"<strong>Settlement of received advance payment according to tax "
-"rates:</strong>"
-msgstr ""
-"<strong>Rozliczenie otrzymanej zaliczki wg stawek podatkowych</strong>"
+msgid "<strong>Settlement of received advance payment according to tax rates:</strong>"
+msgstr "<strong>Rozliczenie otrzymanej zaliczki wg stawek podatkowych</strong>"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document
@@ -260,9 +264,7 @@ msgstr "Źródło zaliczki"
 #: code:addons/trilab_invoice/models/sale_advance_payment_inv.py:0
 #, python-format
 msgid "Advance line value is bigger than order value"
-msgstr ""
-"Suma wartości faktur zaliczkowych przekracza wartości w powiązanym "
-"zamówieniu sprzedaży"
+msgstr "Suma wartości faktur zaliczkowych przekracza wartości w powiązanym zamówieniu sprzedaży"
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/sale_advance_payment_inv.py:0
@@ -319,9 +321,7 @@ msgstr "Anulowana faktura"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.res_config_settings_view_form
-msgid ""
-"Change currency rate for invoices in foreign currencies according to sale "
-"date."
+msgid "Change currency rate for invoices in foreign currencies according to sale date."
 msgstr "Zmień kurs waluty dla faktur w walutach obcych według daty sprzedaży."
 
 #. module: trilab_invoice
@@ -568,15 +568,13 @@ msgstr "Czy zaliczka"
 #: code:addons/trilab_invoice/models/account_move.py:0
 #, python-format
 msgid "It is not possible to issue two direct corrections for one correction."
-msgstr ""
-"Nie jest możliwe utworzenie dwóch bezpośrednich korekt dla jednej korekty."
+msgstr "Nie jest możliwe utworzenie dwóch bezpośrednich korekt dla jednej korekty."
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/account_move.py:0
 #, python-format
 msgid "It is not possible to issue two direct corrections for one invoice."
-msgstr ""
-"Nie jest możliwe utworzenie dwóch bezpośrednich korekt dla jednej faktury."
+msgstr "Nie jest możliwe utworzenie dwóch bezpośrednich korekt dla jednej faktury."
 
 #. module: trilab_invoice
 #: model:ir.model,name:trilab_invoice.model_account_move
@@ -668,17 +666,15 @@ msgstr "Oryginalna suma"
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/account_move.py:0
-#: code:addons/trilab_invoice/models/account_move.py:0
 #, python-format
 msgid "Outstanding credits"
-msgstr ""
+msgstr "Nieuregulowane rozliczenia (credits)"
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/account_move.py:0
-#: code:addons/trilab_invoice/models/account_move.py:0
 #, python-format
 msgid "Outstanding debits"
-msgstr ""
+msgstr "Nieuregulowane rozliczenia (debits)"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document_with_payments
@@ -715,7 +711,6 @@ msgstr "Ilość"
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/sale_advance_payment_inv.py:0
 #: code:addons/trilab_invoice/models/sale_order.py:0
-#: code:addons/trilab_invoice/models/sale_order.py:0
 #, python-format
 msgid "Rate %s with effective date: %s"
 msgstr "Kurs %s z daty obowiązywania: %s"
@@ -746,7 +741,7 @@ msgstr "Korekta"
 #: code:addons/trilab_invoice/models/account_move_reversal.py:0
 #, python-format
 msgid "Reverse Moves"
-msgstr "Odwróć zapisy"
+msgstr "Koryguj zapisy"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document
@@ -830,10 +825,9 @@ msgstr "Pole Techniczne: Czy Polska"
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/account_move.py:0
-#: code:addons/trilab_invoice/models/account_move.py:0
 #, python-format
 msgid "The Bill/Refund date is required to validate this document."
-msgstr ""
+msgstr "Data sprzedaży/zwrotu jest niezbędna aby zatwierdzić ten dokument."
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/account_move.py:0
@@ -844,43 +838,34 @@ msgstr ""
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/account_move.py:0
 #, python-format
-msgid ""
-"The field 'Customer' is required, please complete it to validate the "
-"Customer Invoice."
-msgstr ""
-"Pole 'Klient' jest wymagane, uzupełnij je by móc zwalidować fakturę dla "
-"klienta."
+msgid "The field 'Customer' is required, please complete it to validate the Customer Invoice."
+msgstr "Pole 'Klient' jest wymagane, uzupełnij je by móc zwalidować fakturę dla klienta."
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/account_move.py:0
 #, python-format
-msgid ""
-"The field 'Vendor' is required, please complete it to validate the Vendor "
-"Bill."
-msgstr ""
-"Pole 'Dostawca' jest wymagane, uzupełnij je by móc zwalidować fakturę "
-"dostawcy."
+msgid "The field 'Vendor' is required, please complete it to validate the Vendor Bill."
+msgstr "Pole 'Dostawca' jest wymagane, uzupełnij je by móc zwalidować fakturę dostawcy."
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/sale_advance_payment_inv.py:0
 #, python-format
 msgid ""
-"The product used to invoice a down payment should be of type 'Service'. "
-"lease use another product or update this product."
+"The product used to invoice a down payment should be of type 'Service'. lease use another product "
+"or update this product."
 msgstr ""
-"Produkt przypisany do zaliczki musi być typu 'Usługa'. Proszę użyć innego "
-"produktu lub zmodyfikować obecny."
+"Produkt przypisany do zaliczki musi być typu 'Usługa'. Proszę użyć innego produktu lub "
+"zmodyfikować obecny."
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/sale_advance_payment_inv.py:0
 #, python-format
 msgid ""
-"The product used to invoice a down payment should have an invoice policy set"
-" to \"Ordered quantities\". Please update your deposit product to be able to"
-" create a deposit invoice."
+"The product used to invoice a down payment should have an invoice policy set to \"Ordered "
+"quantities\". Please update your deposit product to be able to create a deposit invoice."
 msgstr ""
-"Produkt przypisany do zaliczki musi być typu 'Usługa'. Proszę użyć innego "
-"produktu lub zmodyfikować obecny."
+"Produkt przypisany do zaliczki musi być typu 'Usługa'. Proszę użyć innego produktu lub "
+"zmodyfikować obecny."
 
 #. module: trilab_invoice
 #: code:addons/trilab_invoice/models/account_move.py:0
@@ -948,9 +933,7 @@ msgstr "Kwota netto"
 #: code:addons/trilab_invoice/models/sale_order.py:0
 #, python-format
 msgid "Value in advance invoices is greater than order value"
-msgstr ""
-"Suma wartości faktur zaliczkowych jest większa niż wartość powiązanego "
-"zamówienia sprzedaży"
+msgstr "Suma wartości faktur zaliczkowych jest większa niż wartość powiązanego zamówienia sprzedaży"
 
 #. module: trilab_invoice
 #: model_terms:ir.ui.view,arch_db:trilab_invoice.report_invoice_document

@@ -1,6 +1,12 @@
+v0.1.2
+====
+* Further bugfixes in QWEB view: sale order summary's styles, Final Invoice Summary title;
+* Field amount_total is now equal to amount_total_signed (amount_total had wrong sign);
+* Translations have been corrected.
+
 v0.1.1
 ====
-* Further bugfixes in QWEB view.
+* Further bugfixes in QWEB view: tables' columns' width and footer's styles.
 
 v0.1 - Bugfixes
 ====

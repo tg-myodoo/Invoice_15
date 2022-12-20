@@ -145,16 +145,8 @@
       <attribute name="t-if">not o.move_type.endswith('_refund') and o.ref</attribute> <!-- " -->
     </div>
 
-    <!-- [UPGRADE] 
-    <div name="invoice_date" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
-    <div name="due_date" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
-    <div name="origin" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
-    <div name="customer_code" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
-    <div name="reference" position="attributes"><attribute name="class">col-md-auto col-3 mw-100 mb-2</attribute></div>
-    -->
     <div name="reference" position="after">
       <!-- [UPGRADE] --><div class="col-auto col-3 mw-100 mb-2" t-if="o.move_type.endswith('_refund') and o.ref" name="x_correction_reason">
-      <!-- <div class="col-auto mw-100 mb-2" -->
         <strong>Correction reason:</strong>
         <p class="m-0" t-field="o.ref"/>
       </div>
@@ -167,7 +159,6 @@
         <!-- [UPGRADE] -->
         <p class="m-0" t-if="o.x_is_poland" t-out="o.refund_invoice_id.invoice_date" t-options='{"widget": "date","format": "dd.MM.yyyy"}'/>
         <p class="m-0" t-if="not o.x_is_poland" t-out="o.refund_invoice_id.invoice_date"/>
-        <!-- <p class="m-0" t-out="o.refund_invoice_id.invoice_date"/> -->
       </div>
     </div>
 
@@ -319,27 +310,23 @@
               <t t-foreach="taxes_groups.keys()" t-as="tax_group">
                 <tr>
                   <td class="text-left" style="white-space: nowrap;">
-                    <strong>
-                      <span t-raw="tax_group"/>
-                    </strong>
+                    <span t-out="tax_group"/>
+                    <!-- [UPGRADE] <span t-raw=" and removed <strong></strong> -->
                   </td>
                   <td class="text-right" style="white-space: nowrap;">
-                    <strong>
-                      <span t-raw="taxes_groups[tax_group]['base']"
-                            t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
-                    </strong>
+                    <span t-out="taxes_groups[tax_group]['base']"
+                          t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
+                    <!-- [UPGRADE] <span t-raw=" and removed <strong></strong> -->
                   </td>
                   <td class="text-right" style="white-space: nowrap;">
-                    <strong>
-                      <span t-raw="taxes_groups[tax_group]['tax']"
-                            t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
-                    </strong>
+                    <span t-out="taxes_groups[tax_group]['tax']"
+                          t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
+                    <!-- [UPGRADE] <span t-raw=" and removed <strong></strong> -->
                   </td>
                   <td class="text-right" style="white-space: nowrap;">
-                    <strong>
-                      <span t-raw="taxes_groups[tax_group]['total']"
-                            t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
-                    </strong>
+                    <span t-out="taxes_groups[tax_group]['total']"
+                          t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
+                    <!-- [UPGRADE] <span t-raw=" and removed <strong></strong> -->
                   </td>
                 </tr>
               </t>
@@ -495,7 +482,8 @@
         <div class="row">
           <div class="col-4"/>
           <div class="col-8">
-            <div><strong>Advance Invoice Summary / Amount To Pay:</strong></div>
+            <div><strong>Final Invoice Summary / Amount To Pay:</strong></div>
+            <!-- [UPGRADE] --><!-- <div><strong>Advance Invoice Summary / Amount To Pay:</strong></div> -->
             <!--Show downpayments if it is not final invoice, and it is correction with downpayments-->
             <t t-set="tax_totals"
                t-value="o.get_final_invoice_summary(with_downpayments=(not o.final_source_id and o.refund_invoice_id and o.advance_source_id))"/>

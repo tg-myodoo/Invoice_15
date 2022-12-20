@@ -1182,8 +1182,8 @@ class AccountMove(models.Model):
     def _compute_amount(self):   
         super()._compute_amount()
         for move in self:
-            # _logger.info("========================\n" + str(move.name) + "\n" + str(move.x_amount_total) + "\n" + str(move.x_amount_residual) + "\n" + str(move.amount_residual))
             move.amount_residual = move.x_amount_residual
+            move.amount_total = move.amount_total_signed
     # [UPGRADE] END
 
 
