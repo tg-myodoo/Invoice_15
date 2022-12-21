@@ -1,3 +1,12 @@
+v0.2 - Tests
+====
+* Test of module account_move, methods: x_get_is_poland, x_get_invoice_sign.
+
+
+v0.1.3
+====
+* Changing the official version number of the module to 117.
+
 v0.1.2
 ====
 * Further bugfixes in QWEB view: sale order summary's styles, Final Invoice Summary title;

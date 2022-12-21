@@ -3,7 +3,7 @@
     'name': 'Trilab Invoice PL',
     'author': 'Trilab',
     'website': "https://trilab.pl",
-    'version': '2.116',
+    'version': '2.117',
     'category': 'Accounting',
     'summary': 'Base module to manage invoice in PL',
     'description': '''Base module to manage invoices and invoice correction
