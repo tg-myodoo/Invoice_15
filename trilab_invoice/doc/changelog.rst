@@ -1,3 +1,7 @@
+v0.2.1
+====
+* Bugfix in amount_total field regarding currencies other than PLN.
+
 v0.2 - Tests
 ====
 * Test of module account_move, methods: x_get_is_poland, x_get_invoice_sign.

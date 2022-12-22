@@ -193,10 +193,10 @@
     <xpath expr="//th[@name='th_taxes']" position="attributes">
         <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
     </xpath>
-    <xpath expr="//tbody[@class='invoice_tbody']//td[position()=4]" position="attributes">
+    <xpath expr="//t[@name='account_invoice_line_accountable']/td[position()=4]" position="attributes">
         <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
     </xpath>
-    <xpath expr="//tbody[@class='invoice_tbody']//td[position()=5]" position="attributes">
+    <xpath expr="//t[@name='account_invoice_line_accountable']/td[position()=5]" position="attributes">
         <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
     </xpath>
 

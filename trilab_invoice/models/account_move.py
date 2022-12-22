@@ -335,14 +335,14 @@ class AccountMove(models.Model):
         # Assign json-formatted result to the field
         # noinspection PyTypeChecker
         return {
-            'amount_total': amount_total, # on tax sumary on pdf
+            'amount_total': amount_total, # on tax sumary on pdf <<<
             'amount_untaxed': amount_untaxed, # on tax sumary on pdf
             'formatted_amount_total': formatLang(lang_env, amount_total, currency_obj=currency), # on tax sumary on view
             'formatted_amount_untaxed': formatLang(lang_env, amount_untaxed, currency_obj=currency),
             'groups_by_subtotal': groups_by_subtotal,
             'subtotals': subtotals_list,
             'allow_tax_edition': False,
-            'x_tax_amount': tax_amount, # on tax sumary on pdf
+            'x_tax_amount': tax_amount, # on tax sumary on pdf <<<
             'x_formatted_tax_amount': formatLang(lang_env, tax_amount, currency_obj=currency),
             'x_tax_amount_in_pln': tax_amount_in_pln,
             'x_formatted_tax_amount_in_pln': formatLang(lang_env, tax_amount_in_pln, currency_obj=pln),
@@ -1183,7 +1183,7 @@ class AccountMove(models.Model):
         super()._compute_amount()
         for move in self:
             move.amount_residual = move.x_amount_residual
-            move.amount_total = move.amount_total_signed
+            move.amount_total = move.x_amount_total
     # [UPGRADE] END
 
 
