@@ -1,3 +1,7 @@
+v0.2.3
+====
+* Cleaning the code.
+
 v0.2.2
 ====
 * Bugfix in amount_total field regarding negative value;
