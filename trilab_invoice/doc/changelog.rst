@@ -1,3 +1,9 @@
+v0.2.2
+====
+* Bugfix in amount_total field regarding negative value;
+* Bugfix in amount_residual field regarding vendor bill;
+* Removing unused files.
+
 v0.2.1
 ====
 * Bugfix in amount_total field regarding currencies other than PLN.
@@ -5,6 +11,13 @@ v0.2.1
 v0.2 - Tests
 ====
 * Test of module account_move, methods: x_get_is_poland, x_get_invoice_sign.
+
+
+v15.0.2.117 
+====
+* Further bugfixes in QWEB view: sale order summary's styles, Final Invoice Summary title, tables' columns' width and footer's styles;
+* Field Amount Due (amount_residual) and amount_total are now computed according to polish law (had wrong sign);
+* Translations have been corrected.
 
 
 v0.1.3

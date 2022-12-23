@@ -1182,8 +1182,30 @@ class AccountMove(models.Model):
     def _compute_amount(self):   
         super()._compute_amount()
         for move in self:
-            move.amount_residual = move.x_amount_residual
-            move.amount_total = move.x_amount_total
+            _logger.info("================================")
+            _logger.info("======= " + str(move.move_type))
+            _logger.info("========total " + str(move.amount_total))
+            _logger.info("======x=total " + str(move.x_amount_total))
+            _logger.info("=====residual " + str(move.amount_residual))
+            _logger.info("===x=residual " + str(move.x_amount_residual))
+
+            # preview gets total value from positive value of: amount_residual or amount_total - both must be negative to show negative total
+            # mail template gets total directly from amount_total
+
+            if move.move_type in ('in_invoice', 'in_refund'):
+                new_amount_residual = move.x_amount_residual
+                move.amount_residual = abs(new_amount_residual) if move.move_type in ('in_invoice') else -new_amount_residual
+            else: 
+                move.amount_residual = move.x_amount_residual
+
+            new_amount_total = move.amount_total
+            move.amount_total = abs(new_amount_total) if move.move_type  in ('in_invoice', 'out_invoice', 'entry') else -new_amount_total
+
+            _logger.info("==============")
+            _logger.info("========total " + str(move.amount_total))
+            _logger.info("=====residual " + str(move.amount_residual))
+
+
     # [UPGRADE] END
 
 
