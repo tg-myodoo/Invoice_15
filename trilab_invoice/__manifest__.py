@@ -3,7 +3,7 @@
     'name': 'Trilab Invoice PL',
     'author': 'Trilab',
     'website': "https://trilab.pl",
-    'version': '2.117',
+    'version': '2.117.1',
     'category': 'Accounting',
     'summary': 'Base module to manage invoice in PL',
     'description': '''Base module to manage invoices and invoice correction
@@ -16,10 +16,12 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/mail_template_data.xml',
         'views/report_templates.xml',
         'views/report_invoice.xml',
         'views/account_move_reversal.xml',
-        'views/account_move_views.xml',    
+        'views/account_move_views.xml',  
+        'views/account_portal_templates.xml',  
         'views/sale_advance_payment_inv.xml',
         'views/sale_views.xml',
         'views/res_config_settings_views.xml',

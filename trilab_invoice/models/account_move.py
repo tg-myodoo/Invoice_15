@@ -1162,37 +1162,6 @@ class AccountMove(models.Model):
             move.x_amount_total = sign * abs(total_currency if len(currencies) == 1 else total)
             move.x_amount_residual = total_residual_currency if len(currencies) == 1 else total_residual
 
-            
-    # [UPGRADE] START
-        # method added to fix outputs used by odoo's widgets:
-        # preview gets total value from positive value of: amount_residual or amount_total - both must be negative to show negative total
-        # mail template gets total directly from amount_total
-    @api.depends(
-        'line_ids.matched_debit_ids.debit_move_id.move_id.payment_id.is_matched',
-        'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual',
-        'line_ids.matched_debit_ids.debit_move_id.move_id.line_ids.amount_residual_currency',
-        'line_ids.matched_credit_ids.credit_move_id.move_id.payment_id.is_matched',
-        'line_ids.matched_credit_ids.credit_move_id.move_id.line_ids.amount_residual',
-        'line_ids.matched_credit_ids.credit_move_id.move_id.line_ids.amount_residual_currency',
-        'line_ids.debit',
-        'line_ids.credit',
-        'line_ids.currency_id',
-        'line_ids.amount_currency',
-        'line_ids.amount_residual',
-        'line_ids.amount_residual_currency',
-        'line_ids.payment_id.state',
-        'line_ids.full_reconcile_id')
-    def _compute_amount(self):   
-        super()._compute_amount()
-        for move in self:
-            move.amount_residual = move.x_amount_residual
-            if move.move_type in ('in_invoice', 'in_refund'):
-                move.amount_residual = abs(move.x_amount_residual) if move.move_type in ('in_invoice') else -move.x_amount_residual
-                
-            move.amount_total = abs(move.amount_total) if move.move_type  in ('in_invoice', 'out_invoice', 'entry') else -move.amount_total
-    # [UPGRADE] END
-
-
     def _move_autocomplete_invoice_lines_write(self, vals):
         res = super()._move_autocomplete_invoice_lines_write(vals)
 

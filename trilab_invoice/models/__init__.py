@@ -1,4 +1,5 @@
 from . import account_move
+from . import account_move_view
 from . import account_move_line
 from . import account_move_reversal
 from . import res_config_settings

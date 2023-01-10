@@ -488,7 +488,7 @@
           <div class="col-4"/>
           <div class="col-8">
             <div><strong>Final Invoice Summary / Amount To Pay:</strong></div>
-            <!-- [UPGRADE] chenged word 'Advance' to 'Final' -->
+            <!-- [UPGRADE] changed word 'Advance' to 'Final' -->
             <!--Show downpayments if it is not final invoice, and it is correction with downpayments-->
             <t t-set="tax_totals"
                t-value="o.get_final_invoice_summary(with_downpayments=(not o.final_source_id and o.refund_invoice_id and o.advance_source_id))"/>
