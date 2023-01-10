@@ -67,7 +67,7 @@
     </data>
 
 <!-- [UPGRADE] set noupdate to True again -->
-    <data noupdate="0">
+    <data>
         <function name="write" model="ir.model.data">
             <function name="search" model="ir.model.data">
                 <value eval="[('module', '=', 'account'), ('name', '=', 'email_template_edi_credit_note')]" /> 

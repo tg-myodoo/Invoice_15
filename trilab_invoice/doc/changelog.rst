@@ -4,6 +4,10 @@ v15.0.2.117
 * Changes in credit note mail template and invoice preview portal template regarding negative amount_total value on credit note;
 * Translations have been corrected.
 
+v0.3.2
+====
+* Small bugfixes
+
 v0.3.1
 ====
 * Small bugfixes
