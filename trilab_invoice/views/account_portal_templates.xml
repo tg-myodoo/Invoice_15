@@ -24,7 +24,8 @@
                     <t t-set="title">
                         <h2 class="mb-0">
                         <!-- [UPGRADE] START changes in displaying the sign in the preview view -->
-                            <b t-if="invoice.move_type == 'out_refund'" t-field="invoice.amount_residual_for_view"/>
+                            <b t-if="invoice.move_type == 'out_refund'" t-esc="-invoice.amount_total"
+                                                            t-options="{'widget': 'monetary', 'display_currency': invoice.currency_id}"/>
                             <b t-else="1" t-field="invoice.amount_total"/>
                         <!-- [UPGRADE] END-->
                         </h2>

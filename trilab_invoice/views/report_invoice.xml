@@ -163,7 +163,7 @@
         <strong>Original invoice date:</strong>
         <!-- [UPGRADE] added polish date format-->
         <p class="m-0" t-if="o.x_is_poland" t-out="o.refund_invoice_id.invoice_date" t-options='{"widget": "date","format": "dd.MM.yyyy"}'/>
-        <p class="m-0" t-if="not o.x_is_poland" t-out="o.refund_invoice_id.invoice_date"/>
+        <p class="m-0" t-else="1" t-out="o.refund_invoice_id.invoice_date"/>
       </div>
     </div>
 
