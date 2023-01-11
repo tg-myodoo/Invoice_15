@@ -32,6 +32,14 @@ class TestAccountMove(TransactionCase):
             'login': 'test@test.pl'
         })
 
+        # Test country and company.
+        cls.country = cls.env['res.country'].search([('name', '=', 'Poland')])
+        
+        cls.company = cls.env['res.company'].create({
+            'name': 'Company Name',
+            'country_id': cls.country.id
+        })
+
         # Account.
         user_type_payable = cls.env.ref('account.data_account_type_payable')
         cls.account_payable = cls.env['account.account'].create({

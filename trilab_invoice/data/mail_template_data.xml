@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- [UPGRADE] changes in displaying the sign in the credit note mail template -->
 <odoo>
-<!-- [UPGRADE] has to be checked, why function must be duplicated to be working... -->
-    <data noupdate="1">
-        <function name="write" model="ir.model.data">
-        </function>      
-    </data>
 <!-- [UPGRADE] remove noupdate, set it to False -->
     <data>
         <function name="write" model="ir.model.data">
@@ -15,8 +10,6 @@
 
             <value eval="{'noupdate': False}" />
         </function>      
-    </data>
-    <data>
 
 <!-- [UPGRADE] new credit note mail temlate -->
         <record id="account.email_template_edi_credit_note" model="mail.template">
@@ -64,10 +57,8 @@
             <field name="lang">{{ object.partner_id.lang }}</field>
             <field name="auto_delete" eval="True"/>
         </record>
-    </data>
 
 <!-- [UPGRADE] set noupdate to True again -->
-    <data>
         <function name="write" model="ir.model.data">
             <function name="search" model="ir.model.data">
                 <value eval="[('module', '=', 'account'), ('name', '=', 'email_template_edi_credit_note')]" /> 
