@@ -1,8 +1,14 @@
+v0.4 - Tests
+====
+* Added tests of module account_move methods: _format_float, action_reverse, action_reverse_pl, x_num2words.
+
+
 v15.0.2.117 
 ====
 * Further bugfixes in QWEB view: sale order summary's styles, Final Invoice Summary title, tables' columns' width and footer's styles;
 * Changes in credit note mail template and invoice preview portal template regarding negative amount_total value on credit note;
 * Translations have been corrected.
+
 
 v0.3.3
 ====
